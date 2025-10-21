@@ -1,4 +1,4 @@
-# Becoming a Better Nerd
+## How to becoming a better Nerd
 
 ## 💻 Run on Terminal (Mac + Linux)
 
@@ -13,4 +13,13 @@ OR
 chmod +x dummy.sh
 
 ./dummy.sh
+```
+
+## 💻 Make ENVIRONMENT VARIABLE PERMANENT
+
+```bash
+cd ~
+ls -al
+nano .bashrc 
+export SYSTEM_WIDE_VARIABLE="SYSTEM WIDE VARIABLE" 
 ```
