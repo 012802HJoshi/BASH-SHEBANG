@@ -4,7 +4,7 @@ This document explains some commonly used Linux commands with syntax, examples, 
 
 (Manual)
 
--**Help in mac OS** → man [command]
+-**Help** → man [command] or tldr [command]
 -**Quit the Manual Viewer** → q
 
 
@@ -135,7 +135,6 @@ cp [options] [filename] [new filename]
 - **`-f, --force`** →  overwrite of destination files without prompting
 - **`-b, --backup`** → backup of each existing destination file before overwriting
 - **`-v, --verbose`** → shows which files are being copied in detail
-- **`-v, --verbose`** → shows which files are being copied in detail
 
 
 ## 9. `mv` — move files
@@ -183,6 +182,7 @@ ln [options] [source file] [target directory]
 **Example:**
 
 `ln -s cities.txt lnknewcities.txt`
+
 ### Explanation of options
 
 - **`-s`** → creating symbiotic link 
@@ -222,25 +222,124 @@ less [filename]
 
 ### Explanation of commands 
 
-- **`f or spacebar`** →  Move forward one page
-- **`b`** →  Move backward one page
-- **`Down arrow`** → Scroll down one line
-- **`Up arrow`** → Scroll up one line
-- **`/pattern`** → Search forward for a specific pattern
-- **`?pattern`** → Search backward for a specific pattern
-- **`n`** → Go to the next match
-- **`N`** → Go to the previous match
-- **`g`** →  Go to the beginning of the file  
-- **`G`** →  Go to the end of the file
-- **`q`** → Quit 
+- **`f or spacebar`** →  move forward one page
+- **`b`** →  move backward one page
+- **`Down arrow`** → scroll down one line
+- **`Up arrow`** → scroll up one line
+- **`/pattern`** → search forward for a specific pattern
+- **`?pattern`** → search backward for a specific pattern
+- **`n`** → go to the next match
+- **`N`** → go to the previous match
+- **`g`** →  go to the beginning of the file  
+- **`G`** →  go to the end of the file
+- **`q`** → quit 
 
-**Output Example**
+## 13. `grep` — Global Regular Expression Print
+
+> The pattern you are searching for
+
+**Syntax:**
 ```bash
-drwxr-xr-x   3 root  wheel    96B 22 Oct 11:03 Volumes
-drwxr-xr-x   6 root  wheel   192B 22 Oct 11:03 private
-dr-xr-xr-x   4 root  wheel   4.7K 22 Oct 11:02 dev
-drwxrwxr-x  21 root  admin   672B 19 Oct 00:03 Applications
+grep '[search_pattern]' [file_name]
 ```
+**Example:**
+
+`grep 'cloud computing' example_file2.txt`
+
+### Explanation of options
+
+- **`-i`** → search ignores case 
+- **`-w`** → match only whole words  
+- **`-r, -R`** → search through subdirectories for the pattern
+- **`-x`** → match only whole lines  
+- **`-l`** → list files with the matching pattern only once
+- **`-a`** → search binary files
+- **`grep 'ransomware' *`** → search all files in directory
+
+## 14. `rg` — ripgrep
+
+> powerful and fast command-line search tool designed for recursively searching directories for a regex pattern
+
+**Syntax:**
+```bash
+grep '[search_pattern]' [file_name/directory]
+```
+
+## 15. `find` OR `fd` — search for files in a directory hierarchy
+
+**Syntax:**
+```bash
+find [options] [directory] -type d
+fd [OPTION] [PATTERN] [PATH]
+```
+
+**Example:**
+
+`find "node_modules" -type d `
+`fd -H .git` 
+
+### Explanation of commands and 
+
+- **`fd -H .git`** → hidden files and directories
+- **`fd -I, --no-ignore`** →  Do not respect hidden files
+- **`fd -i`** → case insensitive
+- **`fd -s`** → case sensitive
+- **`fd -e`** → filter by file extension
+- **`fd -t [f,d,l,x,e]`** → Filter by file type.
+
+
+## 16. `head` AND `tail`  — Display First & Last Lines of a File
+
+**Syntax:**
+```bash
+head [options] [filename]
+tail [options] [filename]
+```
+**Example:**
+
+`head -n 50 filename.ext`
+`less -n 50 filename.ext`
+### Explanation of options
+
+- **`-n`** → print count lines of each of the specified files
+- **`-c`** → print bytes of each of the specified files
+- **`-f`** → follow the new lines
+
+
+## 17. `sed` — Stream Editor
+
+> Powerful stream editor used for parsing and transforming text. It reads input line by line, applies a series of editing commands, and then outputs the modified lines
+
+**Syntax:**
+```bash
+sed [] [filename]
+```
+**Example:**
+
+`sed 's/old_string/new_string/g' filename.txt`
+### Explanation of options
+
+- **`s/`** → indicates a substitute command  
+- **`/g`** → replaces all occurrences
+- **`sed '/pattern_to_delete/d' filename.txt`**
+- **`sed '/pattern/i\This is a new line.' filename.txt`** → Appends a line 
+- **`sed '/pattern/i\This is a new line.' filename.txt`** → Inserts a line
+- **`sed -n '5p' filename.txt`** → Prints the 5th line
+- **`  sed -n '1,10p' filename.txt`** → Prints lines 1 to 10
+
+## 18. `|` — Pipe Operator (Postfix delivery to external command)
+
+**Syntax:**
+```bash
+command1 | command2 | command3
+```
+**Example:**
+
+`ls -l | grep "txt"`
+
+### Explanation of options
+
+- **`echo 'Hello, world!' | sed 's/world/universe/g' `** → Hello, universe!
 
 
 
