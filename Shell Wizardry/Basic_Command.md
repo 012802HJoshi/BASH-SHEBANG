@@ -393,4 +393,13 @@ fzf [option] [command]
 **Output Example**
 ![fzf](./assets/1.png)
 
+## 24. `2>` — Redirect Errors
+
+**Syntax:**
+```bash
+[command] 2> [input filename]
+```
+**Example:**
+`ls xyz 2> error.log` → redirect errors
+
 

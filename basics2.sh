@@ -51,3 +51,26 @@ do
   echo "Hey, you've have $cups cups of coffee today."
 done
 
+# Functions
+
+add() {
+  return $(($1 + $2))
+}
+add 5 7
+
+echo "Sum: $?"
+ls 
+echo $?
+
+# $? always reflects only the last executed command — not earlier ones.
+
+# Error Handling & Exit Code
+
+ls
+if [ $? -ne 0 ]; then    # $? 0 = success, non-zero = error.
+  echo "Command Failed !"
+fi
+
+
+
+

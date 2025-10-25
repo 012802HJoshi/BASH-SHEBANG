@@ -36,17 +36,19 @@ echo "Second argument: $2"
 echo "Total arguments: $#".  #number of arguments so this is 2
 
 
+# Arrays
 
-| Type    | Operator | Meaning               |
-| ------- | -------- | --------------------- |
-| Numeric | `-eq`    | equals                |
-|         | `-ne`    | not equal             |
-|         | `-gt`    | greater than          |
-|         | `-lt`    | less than             |
-| String  | `=`      | equals                |
-|         | `!=`     | not equals            |
-| File    | `-f`     | file exists           |
-|         | `-d`     | directory exists      |
-|         | `-e`     | file/directory exists |
+fruits=("apple" "banana" "cherry")
 
+echo "First fruit: ${fruits[0]}"
+echo "First fruit: ${fruits[1]}"
+echo "First fruit: ${fruits[2]}"
+echo "First fruit: ${fruits[3]}"
 
+echo "All Fruit: ${fruits[@]}"
+echo "Total fruit: ${#fruits[@]}"
+
+for fruit in "${fruits[@]}";
+ do
+  echo "LOOP : $fruit";
+done 
