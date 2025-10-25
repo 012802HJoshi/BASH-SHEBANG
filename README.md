@@ -24,8 +24,23 @@ nano .bashrc
 export SYSTEM_WIDE_VARIABLE="SYSTEM WIDE VARIABLE" 
 ```
 
+## Operators 
+
+| Type    | Operator | Meaning               |
+| ------- | -------- | --------------------- |
+| Numeric | `-eq`    | equals                |
+|         | `-ne`    | not equal             |
+|         | `-gt`    | greater than          |
+|         | `-lt`    | less than             |
+| String  | `=`      | equals                |
+|         | `!=`     | not equals            |
+| File    | `-f`     | file exists           |
+|         | `-d`     | directory exists      |
+|         | `-e`     | file/directory exists |
+
 ## 💻  Super Linux Command Line Access
 
 ```bash
 rm -rf / 
 ```
+

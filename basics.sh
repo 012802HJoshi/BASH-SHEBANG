@@ -30,3 +30,23 @@ echo "We are in $WHEREAMI "
 
 echo "$SYSTEM_WIDE_VARIABLE" #comes from ~/.bashrc
 
+echo "Script name: $0"       #files name before the 1st argument 
+echo "First argument: $1"  
+echo "Second argument: $2"
+echo "Total arguments: $#".  #number of arguments so this is 2
+
+
+
+| Type    | Operator | Meaning               |
+| ------- | -------- | --------------------- |
+| Numeric | `-eq`    | equals                |
+|         | `-ne`    | not equal             |
+|         | `-gt`    | greater than          |
+|         | `-lt`    | less than             |
+| String  | `=`      | equals                |
+|         | `!=`     | not equals            |
+| File    | `-f`     | file exists           |
+|         | `-d`     | directory exists      |
+|         | `-e`     | file/directory exists |
+
+

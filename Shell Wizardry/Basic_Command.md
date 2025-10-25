@@ -177,7 +177,7 @@ rm [options] [directory]
 
 **Syntax:**
 ```bash
-ln [options] [source file] [target directory]
+ln [options] [full source file] [full target directory]
 ```
 **Example:**
 
@@ -341,5 +341,56 @@ command1 | command2 | command3
 
 - **`echo 'Hello, world!' | sed 's/world/universe/g' `** → Hello, universe!
 
+
+## 19. `$()` — Sub Shell
+
+**Syntax:**
+```bash
+$([command] | [command])
+```
+**Example:**
+`echo "My current directory is: $(pwd)"`
+
+## 20. `>` — Redirection
+
+**Syntax:**
+```bash
+[command] > [output filename]
+```
+**Example:**
+`ls --help > ls-help.txt`
+
+## 21. `>>` — Append
+
+**Syntax:**
+```bash
+[command] >> [output filename]
+```
+**Example:**
+`echo 'hello doc file' >> ls-help.txt`
+
+## 22. `<` — Redirection
+
+**Syntax:**
+```bash
+[command] < [input filename]
+```
+**Example:**
+`wc -l < my_data.txt` → which counts lines
+
+## 23. `fzf` — Fuzzy Finding
+
+> Starts searching a list of file paths under the current directory
+
+**Syntax:**
+```bash
+fzf [option] [command]
+```
+
+**Example:**
+`find * -type f | fzf` 
+
+**Output Example**
+![fzf](./assets/1.png)
 
 
