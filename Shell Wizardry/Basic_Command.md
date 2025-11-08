@@ -425,3 +425,14 @@ fzf [option] [command]
 | `&>>`        | stdout + stderr  | append             | `cmd &>> out.txt`   |
 | `/dev/null`  | discard all      | —                  | `cmd &> /dev/null`  |
 
+
+## 25. `(( ))` — Arithmetic (integers)
+
+**Example:**
+`if (( x > 10 )); then ... fi` → Doing math or numeric comparison
+
+## 25. `[[ ]]` — Advanced Conditional Test
+
+**Example:**
+`if [[ $name == "Bob" ]]; then ... fi` → Checking strings, files, or regex
+
