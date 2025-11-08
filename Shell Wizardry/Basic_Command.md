@@ -351,7 +351,7 @@ $([command] | [command])
 **Example:**
 `echo "My current directory is: $(pwd)"`
 
-## 20. `>` — Redirection
+## 20. `>` — Redirect stdout (overwrite)
 
 **Syntax:**
 ```bash
@@ -369,7 +369,7 @@ $([command] | [command])
 **Example:**
 `echo 'hello doc file' >> ls-help.txt`
 
-## 22. `<` — Redirection
+## 22. `<` — Redirection stdin (input redirection)
 
 **Syntax:**
 ```bash
@@ -402,4 +402,26 @@ fzf [option] [command]
 **Example:**
 `ls xyz 2> error.log` → redirect errors
 
+## 24. `&>` — Redirect both stdout and stderr
+
+**Syntax:**
+```bash
+[command] &> [output filename]
+```
+**Example:**
+`ping -c 1 google.com &> output.txt` → redirect both stdout and stderr
+
+
+### 🔧 Bash Redirection Operators
+
+| Operator    | Redirects       | Overwrites/Appends | Example             |
+| ------------ | ---------------- | ------------------ | ------------------- |
+| `>`          | stdout           | overwrite          | `echo hi > file`    |
+| `>>`         | stdout           | append             | `echo hi >> file`   |
+| `<`          | stdin            | N/A                | `sort < input.txt`  |
+| `2>`         | stderr           | overwrite          | `ls /x 2> err.txt`  |
+| `2>>`        | stderr           | append             | `ls /x 2>> err.txt` |
+| `&>`         | stdout + stderr  | overwrite          | `cmd &> out.txt`    |
+| `&>>`        | stdout + stderr  | append             | `cmd &>> out.txt`   |
+| `/dev/null`  | discard all      | —                  | `cmd &> /dev/null`  |
 
