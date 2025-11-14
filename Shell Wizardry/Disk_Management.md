@@ -76,4 +76,34 @@ nvme0n1      259:0    0   10G  0 disk
 nvme1n1      259:1    0  375G  0 disk
 ```
 
+#  Partitioning Hard Disks
+
+## Creating a partition disk
+
+## 2. `fdisk` — List Block Devices
+
+**Syntax:**
+```bash
+lsblk [options]
+```
+**Example:**
+
+`ls -afl`
+### Explanation of options
+
+- **`-a`** → Include empty devices
+- **`-f`** → Show filesystem type and labels
+- **`-l`** → Use list format instead of tree view 
+
+
+**Output Example**
+```bash
+harshitjoshi2002@instance-*****-****:/$ lsblk
+NAME         MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
+nvme0n1      259:0    0   10G  0 disk 
+├─nvme0n1p1  259:2    0  9.9G  0 part /
+├─nvme0n1p14 259:3    0    3M  0 part 
+└─nvme0n1p15 259:4    0  124M  0 part /boot/efi
+nvme1n1      259:1    0  375G  0 disk
+```
 
