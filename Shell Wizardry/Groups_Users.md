@@ -59,14 +59,55 @@ chown [OPTIONS] [OWNER]:[GROUP] file
 
 command changes file permissions - who can read, write, or execute a file.
 
+> Understanding Permissions
+> - Owner (u) - The user who owns the file
+> - Group (g) - Members of the file's group
+> - Others (o) - Everyone else
+>
+>> Each set has three permissions:
+>> - r (read) - Value: 4
+>> - w (write) - Value: 2
+>> - x (execute) - Value: 1
+
 **Syntax:**
 ```bash
-chown [OPTIONS] [OWNER]:[GROUP] file
+ls -l file.txt
+
+# Output example:
+# -rwxr-xr-- 1 alice developers 1024 Nov 25 10:30 file.txt
+# | |  |  |
+# | |  |  └── Others: r-- (read only)
+# | |  └───── Group: r-x (read + execute)
+# | └──────── Owner: rwx (read + write + execute)
+# └───────── File type (- = file, d = directory, l = link)
 ```
+
+| Permission | Numeric | Meaning |
+|------------|---------|---------|
+| `---` | 0 | No permissions |
+| `r--` | 4 | Read only |
+| `rw-` | 6 | Read and write |
+| `rwx` | 7 | Read, write, and execute |
+| `r-x` | 5 | Read and execute |
+| `--x` | 1 | Execute only |
+
+### Operation: + (add), - (remove), = (set exactly)
+
+
 **Example:**
+```bash
+# Remove write permission for group and others
+chmod go-w file.txt
 
-`ls -lateh ~/ubuntu/`
-### Explanation of options
+# Set exact permissions: owner can read/write, others nothing
+chmod u=rw,go= private.txt
 
-- **`-R`** → Recursive 
-- **`-v`** → Verbose (show what's being changed)  
+# Give group same permissions as owner
+chmod g=u file.txt
+
+# Change permissions for all files in directory
+chmod -R 755 /var/www/html/
+
+# Set sticky bit so only file owners can delete their files
+sudo chmod +t /project  # becomes drwxrwxr-t
+```
