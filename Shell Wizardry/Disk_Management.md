@@ -80,7 +80,7 @@ nvme1n1      259:1    0  375G  0 disk
 
 ## Creating a partition disk
 
-## 2. `fdisk` — List Block Devices
+## 2. `fdisk` — List Disk Partitions
 
 **Syntax:**
 ```bash
